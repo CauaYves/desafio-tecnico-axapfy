@@ -18,7 +18,7 @@ export default function Card({ hero, setModalOpen }) {
     >
       <Top>
         <ImageWrapper>
-          <img src={images.sm} alt="developer" />
+          <img src={images.sm} alt="hero" />
         </ImageWrapper>
       </Top>
       <p>{name}</p>

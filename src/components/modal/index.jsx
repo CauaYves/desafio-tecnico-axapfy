@@ -1,14 +1,17 @@
 import styled from "styled-components";
 import Close from "./Close";
 import { useHeroesContext } from "@/context/HeroesContext";
-import BattleCard from "./battleCard";
-import { useEffect, useState } from "react";
-export default function Modal({
-  setModalOpen,
-  setFirstHeroId,
-  setSecondHeroId,
-}) {
+import BattleCard from "./BattleCard";
+import { calculateTotalPower } from "@/utils/calculateTotalPower";
+import { calculatePowerStats } from "@/utils/calculatePointsStats";
+import { calculateWinner } from "@/utils/calculateWinner";
+
+export default function Modal({ setModalOpen }) {
   const { heroes, setHeroes } = useHeroesContext();
+  const totalPowerHeroOne = calculateTotalPower(heroes[0].powerstats);
+  const totalPowerHeroTwo = calculateTotalPower(heroes[1].powerstats);
+  const result = calculatePowerStats(heroes);
+  const winner = calculateWinner(heroes);
 
   return (
     <Main>
@@ -21,10 +24,10 @@ export default function Modal({
         >
           <Close />
         </IconWrapper>
-        <BattleCard hero={heroes[0]} side="row" />
+        <BattleCard hero={heroes[0]} side="row" result={result} />
         <Winner>
           <h3>
-            <span>Winner</span> Hulk
+            <span>Winner</span> {winner}
           </h3>
           <div>
             <p>Intelligence</p>
@@ -35,7 +38,7 @@ export default function Modal({
             <p>Combat</p>
           </div>
         </Winner>
-        <BattleCard hero={heroes[1]} side="row-reverse" />
+        <BattleCard hero={heroes[1]} side="row-reverse" result={result} />
       </Battle>
     </Main>
   );
@@ -83,6 +86,7 @@ const Winner = styled.div`
     font-size: larger;
   }
   span {
+    color: #00ff00;
   }
 `;
 
