@@ -1,12 +1,19 @@
-import Image from "next/image";
 import styled from "styled-components";
+import { useHeroesContext } from "@/context/HeroesContext";
 
-export default function Card({ hero }) {
+export default function Card({ hero, setModalOpen }) {
   const { images, name } = hero;
+  const { heroes, setHeroes } = useHeroesContext();
+
   return (
     <Main
       onClick={() => {
-        console.log("batalha");
+        if (heroes.length === 1) {
+          setHeroes([...heroes, hero]);
+          setModalOpen(true);
+        } else {
+          setHeroes([...heroes, hero]);
+        }
       }}
     >
       <Top>
