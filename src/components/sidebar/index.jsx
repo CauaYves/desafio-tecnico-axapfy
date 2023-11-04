@@ -1,25 +1,32 @@
 import styled from "styled-components";
 import Image from "next/image";
-
+import COLORS from "@/constants/colors";
+import user from "../../../public/user.png";
+import planet from "../../../public/planet.png";
 export default function Sidebar() {
   return (
-    <Main>
-      <div>
-        <img src="https://placehold.co/30" alt="profile" />
-        <p>{"Username"}</p>
-      </div>
+    <Main sixty={COLORS.sixty_adjust}>
+      <ProfileWrapper>
+        <Image src={user} alt="profile" />
+        <i>
+          <p>{"RICARDO"}</p>
+        </i>
+      </ProfileWrapper>
 
-      <div>
-        <img src="https://placehold.co/30" alt="cards" />
-        <p>Cartas</p>
-      </div>
+      <Selection>
+        <div>
+          <Image src={planet} alt="cards" width={20} />
+          <p>Cartas</p>
+        </div>
+      </Selection>
     </Main>
   );
 }
 
 const Main = styled.div`
-  background-color: blue;
-  width: 100px;
+  background-color: ${(props) => props.sixty};
+  box-shadow: 2px 1px 5px #3f3f3fa6;
+  width: 120px;
   position: fixed;
   height: 100vh;
 
@@ -27,14 +34,28 @@ const Main = styled.div`
   align-items: center;
   flex-direction: column;
 
-  div:first-child {
-    background-color: #40ff00;
-    margin-bottom: 80px;
+  padding: 0px 8px;
+`;
+const ProfileWrapper = styled.div`
+  padding-top: 10px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    font-family: "Luckiest Guy", Verdana, Geneva, Tahoma, sans-serif;
   }
+`;
+
+const Selection = styled.div`
+  background-color: #7b00ff;
+
+  border-radius: 10px;
+  width: 100%;
+
   div {
     display: flex;
-    flex-direction: column;
-
-    background-color: red;
+    justify-content: space-around;
+    padding: 8px 10px;
   }
 `;

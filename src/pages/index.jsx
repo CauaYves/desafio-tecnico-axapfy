@@ -5,6 +5,7 @@ import Card from "@/components/card";
 import Sidebar from "@/components/sidebar";
 import Modal from "@/components/modal";
 import { getMetahumans } from "./services/metahumans-api";
+import COLORS from "@/constants/colors";
 
 export default function Home() {
   const [heroesArr, setHeroesArr] = useState([]);
@@ -21,7 +22,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <Main color={COLORS.sixty}>
       {modalOpen && <Modal setModalOpen={setModalOpen} />}
 
       <Content>
@@ -32,16 +33,17 @@ export default function Home() {
           ))}
         </Cards>
       </Content>
-    </main>
+    </Main>
   );
 }
-
+const Main = styled.main`
+  background-color: ${(props) => props.color};
+`;
 const Content = styled.div``;
 
 const Cards = styled.div`
-  background-color: #40ff0044;
-  margin-left: 100px;
-  width: calc(100vw - 300px);
+  margin-left: 150px;
+  width: calc(100vw - 150px);
   display: flex;
   flex-wrap: wrap;
 `;
