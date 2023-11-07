@@ -12,16 +12,17 @@ const Main = styled.div`
   font-size: 30px;
   font-weight: 800;
 
-  width: 35px;
-  height: min-content;
-
+  width: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background-color: white;
+  background-color: #452990;
   border-radius: 5px;
+  box-shadow: 0px 0px 10px #73649d78;
   p {
     transform: rotate(45deg);
+    color: #f4eeee;
+    margin-left: 5px;
   }
 `;
