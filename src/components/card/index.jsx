@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import styled from "styled-components";
 import Image from "next/image";
 import { useHeroesContext } from "@/context/HeroesContext";

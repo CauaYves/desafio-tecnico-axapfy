@@ -20,6 +20,7 @@ const Main = styled.div`
   background-color: #452990;
   border-radius: 5px;
   box-shadow: 0px 0px 10px #73649d78;
+  cursor: pointer;
   p {
     transform: rotate(45deg);
     color: #f4eeee;
