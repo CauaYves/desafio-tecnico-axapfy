@@ -1,10 +1,7 @@
 import styled from "styled-components";
-import Image from "next/image";
-import downIcon from "../../../public/triangle-red.png";
-import upIcon from "../../../public/triangle-green.png";
+import Stats from "./Stats";
 
 export default function BattleCard({ hero, side, result }) {
-  console.log(result);
   const { powerstats } = hero;
   return (
     <Main side={side}>
@@ -13,102 +10,24 @@ export default function BattleCard({ hero, side, result }) {
           <img src={hero.images.sm} alt={hero.name} />
         </div>
         <div>
-          <Stats>
-            {powerstats.intelligence}
-            <Image
-              src={
-                result.intelligence
-                  ? side === "row"
-                    ? downIcon
-                    : upIcon
-                  : side !== "row"
-                  ? downIcon
-                  : upIcon
-              }
-              alt="stats"
-              width={15}
-            />
-          </Stats>
-          <Stats>
-            {powerstats.strength}
-            <Image
-              src={
-                result.strength
-                  ? side === "row"
-                    ? downIcon
-                    : upIcon
-                  : side !== "row"
-                  ? downIcon
-                  : upIcon
-              }
-              alt="stats"
-              width={15}
-            />
-          </Stats>
-          <Stats>
-            {powerstats.speed}
-            <Image
-              src={
-                result.speed
-                  ? side === "row"
-                    ? downIcon
-                    : upIcon
-                  : side !== "row"
-                  ? downIcon
-                  : upIcon
-              }
-              alt="stats"
-              width={15}
-            />
-          </Stats>
-          <Stats>
-            {powerstats.durability}
-            <Image
-              src={
-                result.durability
-                  ? side === "row"
-                    ? downIcon
-                    : upIcon
-                  : side !== "row"
-                  ? downIcon
-                  : upIcon
-              }
-              alt="stats"
-              width={15}
-            />
-          </Stats>
-          <Stats>
-            {powerstats.power}
-            <Image
-              src={
-                result.power
-                  ? side === "row"
-                    ? downIcon
-                    : upIcon
-                  : side !== "row"
-                  ? downIcon
-                  : upIcon
-              }
-              alt="stats"
-              width={15}
-            />
-          </Stats>
-          <Stats>
-            {powerstats.combat}
-            <Image
-              src={
-                result.combat
-                  ? side === "row"
-                    ? downIcon
-                    : upIcon
-                  : side !== "row"
-                  ? downIcon
-                  : upIcon
-              }
-              alt="stats"
-              width={15}
-            />
-          </Stats>
+          <Stats
+            stats={powerstats.intelligence}
+            side={side}
+            result={result.intelligence}
+          />
+          <Stats
+            stats={powerstats.strength}
+            side={side}
+            result={result.strength}
+          />
+          <Stats stats={powerstats.speed} side={side} result={result.speed} />
+          <Stats
+            stats={powerstats.durability}
+            side={side}
+            result={result.durability}
+          />
+          <Stats stats={powerstats.power} side={side} result={result.power} />
+          <Stats stats={powerstats.combat} side={side} result={result.combat} />
         </div>
       </div>
       <h2>{hero.name}</h2>
@@ -120,7 +39,6 @@ const Main = styled.div`
   div {
     display: flex;
     flex-direction: ${(props) => props.side};
-    background-color: blue;
     margin: 4px;
     div {
       display: flex;
@@ -132,8 +50,4 @@ const Main = styled.div`
   h2 {
     text-align: ${(props) => (props.side === "row" ? "left" : "right")};
   }
-`;
-
-const Stats = styled.p`
-  font-size: larger;
 `;

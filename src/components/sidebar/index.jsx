@@ -3,6 +3,7 @@ import Image from "next/image";
 import COLORS from "@/constants/colors";
 import user from "../../../public/user.png";
 import planet from "../../../public/planet.png";
+
 export default function Sidebar() {
   return (
     <Main sixty={COLORS.sixty_adjust}>

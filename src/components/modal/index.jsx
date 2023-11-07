@@ -2,14 +2,10 @@ import styled from "styled-components";
 import Close from "./Close";
 import { useHeroesContext } from "@/context/HeroesContext";
 import BattleCard from "./BattleCard";
-import { calculateTotalPower } from "@/utils/calculateTotalPower";
-import { calculatePowerStats } from "@/utils/calculatePointsStats";
-import { calculateWinner } from "@/utils/calculateWinner";
+import { calculatePowerStats, calculateWinner } from "@/utils";
 
 export default function Modal({ setModalOpen }) {
   const { heroes, setHeroes } = useHeroesContext();
-  const totalPowerHeroOne = calculateTotalPower(heroes[0].powerstats);
-  const totalPowerHeroTwo = calculateTotalPower(heroes[1].powerstats);
   const result = calculatePowerStats(heroes);
   const winner = calculateWinner(heroes);
 
@@ -63,7 +59,16 @@ const Main = styled.div`
 `;
 
 const Battle = styled.div`
-  background-color: #313131;
+  background-image: radial-gradient(
+    circle,
+    #244dbb,
+    #845d5d,
+    #040015,
+    #040017,
+    #030013,
+    #383642
+  );
+
   width: calc(100vw - 10%);
   height: calc(100vh - 10%);
 

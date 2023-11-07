@@ -9,6 +9,5 @@ export function calculatePowerStats(metahumansArr) {
     resultado[atributo] = valorHeroi1 > valorHeroi2;
   });
 
-  console.log(resultado)
   return resultado;
 }

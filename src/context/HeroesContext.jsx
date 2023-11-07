@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 
 const HeroesContext = createContext();
 
-export function HeroesContextProvider({ children }) {
+export function HeroContextProvider({ children }) {
   const [heroes, setHeroes] = useState([]);
 
   return (
