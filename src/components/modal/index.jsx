@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Close from "./Close";
 import { useHeroesContext } from "@/context/HeroesContext";
-import BattleCard from "./BattleCard";
+import BattleCard from "./battleCard";
 import { calculatePowerStats, calculateWinner } from "@/utils";
 
 export default function Modal({ setModalOpen }) {
