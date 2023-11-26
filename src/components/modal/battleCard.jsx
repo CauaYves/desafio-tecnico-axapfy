@@ -1,6 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 import styled from "styled-components";
 import Stats from "./Stats";
+import Image from "next/image";
 
 export default function BattleCard({ hero, side, result }) {
   const { powerstats } = hero;
@@ -8,7 +8,12 @@ export default function BattleCard({ hero, side, result }) {
     <Main side={side}>
       <div>
         <div>
-          <img src={hero.images.sm} alt={hero.name} />
+          <Image
+            src={hero.images.sm}
+            alt={hero.name}
+            width={180}
+            height={250}
+          />
         </div>
         <div>
           <Stats
